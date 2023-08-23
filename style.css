@@ -13,7 +13,7 @@
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-    position: relative;
+    position: sticky;
     top: 0;
     z-index: 999;
   }
@@ -43,11 +43,15 @@
     text-decoration: none;
     font-size: 2rem;
   }
+  .fa-gem{
+    margin-right: 0.5rem;
+  }
   
   .navbar__menu {
     display: flex;
     align-items: center;
     list-style: none;
+    text-align: center;
   }
   
   .navbar__item {
@@ -61,6 +65,7 @@
     justify-content: center;
     width: 125px;
     text-decoration: none;
+    padding: 0 1rem;
     height: 100%;
     transition: all 0.3s ease;
   }
@@ -84,15 +89,19 @@
     border: none;
     outline: none;
     border-radius: 4px;
-    background: #833ab4;
+    background: #f77062;
     background: -webkit-linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);
     background: linear-gradient(to right, #fcb045, #fd1d1d, #833ab4);
     color: #fff;
+    /* transition: all 0.3s ease; */
+  }
+  .button:hover{
+    background: 4837ff;
     transition: all 0.3s ease;
   }
   
   .navbar__links:hover {
-    color: #9518fc;
+    color: #f77062;
     transition: all 0.3s ease;
   }
   
@@ -113,19 +122,21 @@
       margin: 0;
       width: 100%;
       position: absolute;
-      top: -1000px;
-      opacity: 1;
+      top: -1000px; 
+      opacity: 0; 
       transition: all 0.5s ease;
+      height: 50vh;
       z-index: -1;
+      background: #131313;
     }
   
     .navbar__menu.active {
-      background: #131313;
+      
       top: 100%;
       opacity: 1;
       transition: all 0.5s ease;
       z-index: 99;
-      height: 60vh;
+      height: 50vh;
       font-size: 1.6rem;
     }
   
@@ -191,6 +202,97 @@
   }
   
   /* Hero Section */
+  .main{
+    background-color: #141414;
+  }
+  .main__container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-self: center;
+    margin: 0 auto;
+    height: 90vh;
+    background-color: #141414;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px;
+  }
+  .main__content h1{
+    font-size: 4rem;
+    background-color: #ff8177;
+    background-image: linear-gradient(to top,#ff0844 0%,#ffb199 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color:transparent;
+  }
+  .main__content h2{
+    font-size: 4rem;
+    background-color: #ff8177;
+    background-image: linear-gradient(to top,#b721ff 0%,#21d4fd 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color:transparent;
+  }
+  .main__content p {
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .main__btn{
+    font-size: 1rem;
+    background-image: linear-gradient(to top,#f77062 0%, #fe5196 100%);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s;
+    outline: none;
+  }
+  .main__btn a {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .main__btn::after{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #4837ff;
+    transition: all 0.35s;
+    border-radius: 4px;
+  }
+
+  .main__btn:hover{
+    color: #fff;
+  }
+
+  .main__btn:hover:after{
+    width: 100%;
+  }
+
+  .main__img--container{
+    text-align: center;
+  }
+
+  #main__img{
+    height: 80%;
+    width: 80%;
+  }
+
   .hero {
     background: #000000;
     background: linear-gradient(to right, #161616, #000000);
@@ -404,29 +506,19 @@
   @media screen and (max-width: 1100px) {
     .main__container {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: auto;
       align-items: center;
       justify-content: center;
       width: 100%;
       margin: 0 auto;
       height: 90%;
     }
-  
-    .main__img--container {
-      display: flex;
-      justify-content: center;
-    }
-  
-    .main__img--card {
-      height: 425px;
-      width: 425px;
-    }
-  
+
     .main__content {
       text-align: center;
       margin-bottom: 4rem;
     }
-  
+
     .main__content h1 {
       font-size: 2.5rem;
       margin-top: 2rem;
@@ -441,18 +533,13 @@
       font-size: 1.5rem;
     }
   }
-  
+
   @media screen and (max-width: 480px) {
     .main__img--card {
       width: 250px;
       height: 250px;
     }
-  
-    .fa-users,
-    .fa-layer-group {
-      font-size: 4rem;
-    }
-  
+
     .main__content h1 {
       font-size: 2rem;
       margin-top: 3rem;
@@ -471,20 +558,50 @@
     }
   }
   
+    .main__img--container {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .main__img--card {
+      height: 425px;
+      width: 425px;
+    }
+  
+    
+  
+    
+  
+  
+  
+  
+    .fa-users,
+    .fa-layer-group {
+      font-size: 4rem;
+    }
+  
+   
+  
   /* Services Section */
   .services {
-    background: #131313;
+    background: #141414;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     height: 100%;
-    padding: 10rem 0;
+    /* padding: 10rem 0; */
   }
   
   .services h1 {
     background-color: #ff8177;
-    background-image: linear-gradient(to right, #ff0844 0%, #f7673c 100%);
+    background-image: linear-gradient(to right,
+    #ff8177 0%,
+    #ff867a 0%,
+    #ff8c7f 21%,
+    #f99185 52%,
+    #cf556c 78%,
+    #b12a5b 100%);
     background-size: 100%;
     -webkit-background-clip: text;
     -moz-background-clip: text;
@@ -494,10 +611,12 @@
     font-size: 2.5rem;
   }
   
-  .services__wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
+  .services__container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+    /* grid-template-rows: 1fr; */
   }
   
   .services__card {
